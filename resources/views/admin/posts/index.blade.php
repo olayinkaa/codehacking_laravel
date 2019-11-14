@@ -34,7 +34,7 @@
                                 <td>@mdo</td>
                                 <td>@mdo</td>
                                 <td>{{$post->created_at->diffForHumans()}}</td>
-                                <td>{{$post->updated_at3.->diffForHumans()}}</td>
+                                <td>{{$post->updated_at3->diffForHumans()}}</td>
                             </tr>
                             @endforeach
                         </tbody>
