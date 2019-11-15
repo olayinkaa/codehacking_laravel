@@ -8,6 +8,8 @@
   <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
+             @include('includes.form_errors')
+
                 <h1>Create Post</h1>
 
                     {!! Form::open(['method'=>'POST', 'action'=> 'AdminPostsController@store', 'files'=>true]) !!}
@@ -19,7 +21,7 @@
 
                         <div class="form-group">
                             {!! Form::label('category_id', 'Category:') !!}
-                            {!! Form::select('category_id', [1=>'Music',2=>'Sports'], null, ['class'=>'form-control'])!!}
+                            {!! Form::select('category_id', [''=>'Choose Category']+$categories, null, ['class'=>'form-control'])!!}
                         </div>
 
 

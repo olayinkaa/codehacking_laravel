@@ -15,9 +15,9 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Author</th>
-                                <th scope="col">Category</th>
                                 <th scope="col">Photo</th>
+                                <th>Category</th>
+                                <th scope="col">Author</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Body</th>
                                 <th scope="col">Created</th>
@@ -25,16 +25,24 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                        <?php $i=1 ?>
+
                             @foreach($posts as $post)
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
+                                <th scope="row">{{$i++}}</th>
+                                <td>
+                                    <img 
+                                    width="100px"
+                                    src="{{$post->photo ? $post->photo->file :'/images/avatar.png'}}" 
+                                    alt="">
+                                </td>
+                                <td>{{$post->category->name}}</td>
+                                <td>{{$post->user->name}}</td>
+                                <td>{{$post->title}}</td>
+                                <td>{{str_limit($post->body,100)}}</td>
                                 <td>{{$post->created_at->diffForHumans()}}</td>
-                                <td>{{$post->updated_at3->diffForHumans()}}</td>
+                                <td>{{$post->updated_at->diffForHumans()}}</td>
                             </tr>
                             @endforeach
                         </tbody>
