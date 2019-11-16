@@ -2,6 +2,16 @@
 
 @section('content')
 
+@if(Session::has('updated_post'))
+
+
+<div class="alert alert-success" role="alert">
+    {{session('updated_post')}}
+</div>
+
+
+@endif
+
 <h4>All Posts</h4>
 
 <div class="container-fluids">
@@ -38,7 +48,11 @@
                                     alt="">
                                 </td>
                                 <td>{{$post->category->name}}</td>
-                                <td>{{$post->user->name}}</td>
+                                <td>
+                                    <a href="{{route('posts.edit',$post->id)}}">
+                                        {{$post->user->name}}
+                                    </a>
+                                </td>
                                 <td>{{$post->title}}</td>
                                 <td>{{str_limit($post->body,100)}}</td>
                                 <td>{{$post->created_at->diffForHumans()}}</td>
