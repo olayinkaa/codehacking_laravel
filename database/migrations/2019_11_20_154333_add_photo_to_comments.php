@@ -15,7 +15,7 @@ class AddPhotoToComments extends Migration
     {
         Schema::table('comments', function (Blueprint $table) {
 
-            $table->string('photo');
+            $table->string('photo')->default('no_image.jpg');;
 
             //
         });
