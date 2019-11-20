@@ -113,6 +113,8 @@
             <h6 class="collapse-header">Media:</h6>
             <a class="collapse-item" href="{{route('admin.media.index')}}">All Media</a>
             <a class="collapse-item" href="{{route('admin.media.create')}}">Create Media</a>
+            <h6 class="collapse-header">Comment:</h6>
+            <a class="collapse-item" href="{{route('admin.comments.index')}}">All Comments</a>
           </div>
         </div>
       </li>

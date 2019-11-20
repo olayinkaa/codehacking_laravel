@@ -20,14 +20,23 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/admin',function(){
+
+
+// Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
+
+Route::get('/post/{id}', 'AdminPostsController@post')->name('home.post');
+
+
+Route::group(['middleware'=>'admin'],function(){
+
+
+    Route::get('/admin',function(){
 
         return view('admin.index');
 
 })->name('admin');
 
 
-Route::group(['middleware'=>'admin'],function(){
 
     Route::resource('admin/users','AdminUsersController');
     Route::resource('admin/posts','AdminPostsController');
@@ -41,10 +50,28 @@ Route::group(['middleware'=>'admin'],function(){
         'store'=>'admin.media.store',
         'edit'=>'admin.media.edit'
 
+    ]]);
 
+
+
+    Route::resource('admin/comments', 'PostCommentsController',['names'=>[
+
+
+        'index'=>'admin.comments.index',
+        'create'=>'admin.comments.create',
+        'store'=>'admin.comments.store',
+        'edit'=>'admin.comments.edit',
+        'show'=>'admin.comments.show'
 
 
     ]]);
+
+
+
+    Route::resource('admin/comment/replies','CommentRepliesController');
+
+
+
 
 
 });
