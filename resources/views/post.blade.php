@@ -4,6 +4,7 @@
 
     <!-- Blog Post -->
 
+
     <!-- Title -->
     <h1>{{$post->title}}</h1>
 
@@ -26,6 +27,8 @@
 
     <!-- Post Content -->
 
+    
+
     <p>{!!$post->body!!}</p>
 
     <hr>
@@ -33,7 +36,9 @@
 
     @if(Session::has('comment_message'))
 
-        {{session('comment_message')}}
+
+        <h4 class="text-success">{{session('comment_message')}}</h4>
+
 
     @endif
 
@@ -49,7 +54,7 @@
 
 
             <div class="form-group">
-                 {!! Form::label('body', 'Body:') !!}
+                 <!-- {!! Form::label('body', 'Body:') !!} -->
                  {!! Form::textarea('body', null, ['class'=>'form-control','rows'=>3])!!}
             </div>
 

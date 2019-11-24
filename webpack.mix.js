@@ -16,18 +16,39 @@ mix.js('resources/js/app.js', 'public/js')
 
 .styles([
         'resources/css/libs/all.css',
-        'resources/css/libs/blog-post.css',
-        'resources/css/libs/bootstrap.css',
         'resources/css/libs/sb-admin-2.css',
-        'resources/css/libs/styles.css',
+    
 
     ],'public/css/libs.css')
 
+
 .js([
+        
         'resources/js/libs/all.js',
         'resources/js/libs/bootstrap.js',
+        'resources/js/libs/bootstrap.bundle.js',
         'resources/js/libs/jquery.js',
+        'resources/js/libs/jquery.easing.js',
         'resources/js/libs/scripts.js',
         'resources/js/libs/sb-admin-2.js'
         
-    ], 'public/js/libs.js');
+    ], 'public/js/libs.js')
+
+
+.styles([
+
+        'resources/css/libs/blog-post.css',
+        'resources/css/libs/bootstrap.css'
+
+],'public/css/frontui.css')
+
+
+
+.js([
+
+        'resources/js/libs/bootstrap.js',
+        'resources/js/libs/jquery.js',
+        
+    ], 'public/js/frontui.js');
+
+    

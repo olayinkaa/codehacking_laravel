@@ -30,6 +30,8 @@
                                 <th scope="col">Author</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Body</th>
+                                <th scope="col">Post Link</th>
+                                <th scope="col">Comments</th>
                                 <th scope="col">Created</th>
                                 <th scope="col">Updated</th>
                             </tr>
@@ -55,6 +57,10 @@
                                 </td>
                                 <td>{{$post->title}}</td>
                                 <td>{{str_limit($post->body,100)}}</td>
+                                <td>
+                                    <a href="{{route('home.post',$post->id)}}">View Post</a>
+                                </td>
+                                <td><a href="{{route('admin.comments.show', $post->id)}}">View Comments</a></td>
                                 <td>{{$post->created_at->diffForHumans()}}</td>
                                 <td>{{$post->updated_at->diffForHumans()}}</td>
                             </tr>
